@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>My Chart.js Chart</title>
+</head>
+<body>
+  <div class="container">
+    <canvas id="myChart"></canvas>
+  </div>
+
+  <script>
+    let myChart = document.getElementById('myChart').getContext('2d');
+
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+    let mytimeChart = new Chart(myChart, {
+      type:'bar',
+      data:{
+        labels:['Google meet', 'Instagram', 'Twitter', 'Youtube', 'WhatsApp', 'SonyLiv'],
+        datasets:[{
+          label:'Hours Spend in a Week',
+          data:[
+          26,
+          30,
+          15,
+          24,
+          20,
+          21
+          ],
+          backgroundColor:[
+            'rgba(6, 17, 28, 0.8)',
+            'rgba(217, 13, 50, 0.8)',
+            'rgba(4, 138, 191, 0.8)',
+            'rgba( 187, 32, 32, 0.8)',
+            'rgba(7, 140, 65, 0.8)',
+            'rgba(217, 103, 4, 0.8)',
+          ],
+
+          borderColor:'#777',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#000'
+        }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'Hours Spend on each App in a Week',
+          fontSize:25
+        },
+        legend:{
+          display:false,
+          position:'right',
+          labels:{
+            fontColor:'#000'
+          }
+        },
+        layout:{
+          padding:{
+            left:50,
+            right:0,
+            bottom:0,
+            top:0
+          }
+        },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+  </script>
+</body>
+</html>
